@@ -66,6 +66,11 @@ public class UserServiceTests {
     }
 
     @Test
+    void fail() {
+        assertEquals(0, 1);
+    }
+
+    @Test
     void getAllUsers_ShouldReturnUserDTOList() {
         Page<User> users = new PageImpl<>(Collections.singletonList(user));
         UserDTO userDTO = new UserDTO(userId, "test", "test@test.ru", "test", "test", "test");
