@@ -43,6 +43,7 @@ jobs:
         run: mvn -f backend/pom.xml -ntp clean verify
 
       - name: Publish Test Report
+        id: publish_report
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
         with:
