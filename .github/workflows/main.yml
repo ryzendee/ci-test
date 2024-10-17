@@ -43,20 +43,8 @@ jobs:
         run: mvn -f backend/pom.xml -ntp clean verify
 
       - name: Publish Test Report
-        id: publish_report
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
         with:
           report_paths: ${{ env.TEST_REPORT_PATH}}
           detailed_summary: true
-
-      - name: Output Test Summary
-        if: success() || failure()
-        run: |
-          echo "Total tests: ${{ steps.publish_report.outputs.total }}"
-          echo "Passed tests: ${{ steps.publish_report.outputs.passed }}"
-          echo "Failed tests: ${{ steps.publish_report.outputs.failed }}"
-          echo "Skipped tests: ${{ steps.publish_report.outputs.skipped }}"
-          echo "Test Summary: ${{ steps.publish_report.outputs.summary }}"
-          echo "Detailed Summary: ${{ steps.publish_report.outputs.detailed_summary }}"
-          echo "Flaky Tests Summary: ${{ steps.publish_report.outputs.flaky_summary }}"
