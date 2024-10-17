@@ -21,7 +21,7 @@ env:
   JAVA_DISTRIBUTION: 'corretto'
   CACHE_BUILD_TOOL: 'maven'
   CACHE_PATH: 'backend/pom.xml'
-
+  TEST_REPORT_PATH: '**/target/surefire-reports/TEST-*.xml'
 
 
 jobs:
@@ -46,4 +46,4 @@ jobs:
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
         with:
-          report_paths: '**/target/surefire-reports/TEST-*.xml'
+          report_paths: ${{ env.TEST_REPORT_PATH}}
