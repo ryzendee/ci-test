@@ -46,4 +46,4 @@ jobs:
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
         with:
-          report_paths: '**/backend/src/target/surefire-reports/TEST-*.xml'
+          report_paths: '**/target/surefire-reports/TEST-*.xml'
