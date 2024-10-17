@@ -47,3 +47,4 @@ jobs:
         if: success() || failure()
         with:
           report_paths: ${{ env.TEST_REPORT_PATH}}
+          detailed_summary: true
