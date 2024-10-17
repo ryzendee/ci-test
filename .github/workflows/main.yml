@@ -23,6 +23,7 @@ env:
   CACHE_PATH: 'backend/pom.xml'
 
 permissions:
+  id-token: write
   checks: write
   pull-requests: write
 
