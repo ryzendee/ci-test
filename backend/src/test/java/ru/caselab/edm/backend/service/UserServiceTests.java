@@ -65,10 +65,7 @@ public class UserServiceTests {
                 .build();
     }
 
-    @Test
-    void fail() {
-        assertEquals(0, 1);
-    }
+
 
     @Test
     void getAllUsers_ShouldReturnUserDTOList() {
