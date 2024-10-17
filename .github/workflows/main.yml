@@ -24,6 +24,7 @@ env:
 
 permissions:
   checks: write
+  pull-requests: write
 
 jobs:
   run_tests:
