@@ -17,6 +17,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.6.2</org.mapstruct.version>
+		<maven-surefire-plugin.version>3.5.1</maven-surefire-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -163,6 +164,11 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+			</plugin>
 		</plugins>
 	</build>
 
