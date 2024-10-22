@@ -31,6 +31,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       docker_image: 'ryzendee/caselab-edm'
+      image_tag: 'latest'
     secrets:
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_TOKEN }}

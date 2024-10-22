@@ -6,6 +6,9 @@ on:
       docker_image:
         required: true
         type: string
+      image_tag:
+        required: true
+        type: string
     secrets:
       docker_username:
         required: true
@@ -37,9 +40,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ vars.DOCKER_IMAGE }}
-          tags: |
-            ${{ env.VERSION }} 
-            latest        
+          tags: ${{ inputs.image_tag }}
 
       - name: Build and push Docker image
         id: push
