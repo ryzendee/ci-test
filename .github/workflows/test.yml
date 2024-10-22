@@ -26,7 +26,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
@@ -35,6 +34,8 @@ jobs:
           cache: ${{ inputs.cache_build_tool }}
           cache-dependency-path: ${{ inputs.cache_path }}
 
+      - name: Run Tests
+        run: mvn -f backend/pom.xml clean verify
 
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v4
@@ -43,8 +44,3 @@ jobs:
           report_paths: ${{ inputs.test_report_path}}
           detailed_summary: true
 
-      - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v4
-        if: success() || failure()
-        with:
-          report_paths: 'backend/target/surefire-reports/*.xml'
