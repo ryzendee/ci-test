@@ -15,23 +15,15 @@ on:
       - 'backend/**'
       - '.github/workflows/**'
 
-
-env:
-  JAVA_VERSION: '17'
-  JAVA_DISTRIBUTION: 'corretto'
-  CACHE_BUILD_TOOL: 'maven'
-  CACHE_PATH: 'backend/pom.xml'
-  TEST_REPORT_PATH: '**/target/surefire-reports/TEST-*.xml'
-
 jobs:
   test:
     uses: ./.github/workflows/test.yml
     with:
-      java_version: ${{ env.JAVA_VERSION }}
-      java_distribution: ${{ env.JAVA_DISTRIBUTION }}
-      cache_build_tool: ${{ env.CACHE_BUILD_TOOL }}
-      cache_path: ${{ env.CACHE_PATH }}
-      test_report_path: ${{ env.TEST_REPORT_PATH }}
+      java_version: '17'
+      java_distribution: 'corretto'
+      cache_build_tool: 'maven'
+      cache_path: 'backend/pom.xml'
+      test_report_path: '**/target/surefire-reports/TEST-*.xml'
 
   build:
     if: github.event-name != 'pull_request'
