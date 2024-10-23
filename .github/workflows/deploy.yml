@@ -3,10 +3,10 @@ name: Deploy workflow
 on:
   workflow_call:
     inputs:
-      scp_source:
+      source:
         type: string
         required: true
-      scp_target:
+      target:
         type: string
         required: true
     secrets:
@@ -33,5 +33,5 @@ jobs:
           username: ${{ secrets.server_username }}
           password: ${{ secrets.server_password }}
           port: ${{ secrets.server_port }}
-          local: ${{ inputs.scp_source }}
-          remote: ${{ inputs.scp_target }}
+          local: ${{ inputs.source }}
+          remote: ${{ inputs.target }}

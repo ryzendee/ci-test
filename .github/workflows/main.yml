@@ -7,6 +7,7 @@ on:
     paths:
       - 'backend/**'
       - '.github/workflows/**'
+      - 'docker/docker-compose-server.yaml'
   pull_request:
     branches:
       - main
@@ -17,6 +18,7 @@ on:
 
 jobs:
   deploy:
+    environment: prod
     uses: ./.github/workflows/deploy.yml
     with:
       scp_source: 'docker/docker-compose-server.yaml'
