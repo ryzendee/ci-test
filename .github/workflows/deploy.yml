@@ -9,6 +9,9 @@ on:
       target:
         type: string
         required: true
+      environment:
+        type: string
+        required: true
     secrets:
       server_port:
         required: true
@@ -21,6 +24,7 @@ on:
 
 jobs:
   copy_compose:
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
