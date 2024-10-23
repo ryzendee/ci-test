@@ -10,6 +10,8 @@ on:
         type: string
         required: true
     secrets:
+      server_port:
+        required: true
       server_host:
         required: true
       server_username:
@@ -30,6 +32,6 @@ jobs:
           host: ${{ secrets.server_host }}
           username: ${{ secrets.server_username }}
           password: ${{ secrets.server_password }}
-          port: ${{ secrets.PORT }}
+          port: ${{ secrets.server_port }}
           source: ${{ inputs.scp_source }}
           target: ${{ inputs.scp_target }}
