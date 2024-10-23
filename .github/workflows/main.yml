@@ -19,7 +19,7 @@ jobs:
   deploy:
     uses: ./.github/workflows/deploy.yml
     with:
-      scp_source: 'docker/docker-compose-server.yaml'
+      scp_source: './docker/docker-compose-server.yaml'
       scp_target: '/home/ubuntu/'
     secrets:
       server_host: ${{ secrets.SERVER_HOST }}
