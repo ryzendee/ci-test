@@ -9,6 +9,9 @@ on:
       scp_target:
         type: string
         required: true
+      scp_overwrite:
+        type: boolean
+        default: false
     secrets:
       server_port:
         required: true
@@ -35,3 +38,4 @@ jobs:
           port: ${{ secrets.server_port }}
           source: ${{ inputs.scp_source }}
           target: ${{ inputs.scp_target }}
+          overwrite: ${{ inputs.scp_overwrite }}
