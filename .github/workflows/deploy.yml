@@ -1,0 +1,35 @@
+name: Deploy workflow
+
+on:
+  workflow_call:
+    inputs:
+      scp_source:
+        type: string
+        required: true
+      scp_target:
+        type: string
+        required: true
+    secrets:
+      server_host:
+        required: true
+      server_username:
+        required: true
+      server_password:
+        required: true
+
+jobs:
+  copy_compose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Copy file
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.server_host }}
+          username: ${{ secrets.server_username }}
+          password: ${{ secrets.server_password }}
+          port: ${{ secrets.PORT }}
+          source: ${{ inputs.scp_source }}
+          target: ${{ inputs.scp_target }}
