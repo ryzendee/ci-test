@@ -27,12 +27,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Copy file
-        uses: appleboy/scp-action@v0.1.7
+        uses: garygrossgarten/github-action-scp@release
         with:
           host: ${{ secrets.server_host }}
           username: ${{ secrets.server_username }}
           password: ${{ secrets.server_password }}
           port: ${{ secrets.server_port }}
-          source: ${{ inputs.scp_source }}
-          target: ${{ inputs.scp_target }}
-          overwrite: true
+          local: ${{ inputs.scp_source }}
+          remote: ${{ inputs.scp_target }}
