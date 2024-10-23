@@ -21,6 +21,7 @@ jobs:
     with:
       scp_source: 'docker/docker-compose-server.yaml'
       scp_target: '/home/ubuntu/'
+      overwrite: true
     secrets:
       server_host: ${{ secrets.SERVER_HOST }}
       server_username: ${{ secrets.SERVER_USERNAME }}
