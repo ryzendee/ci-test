@@ -7,6 +7,7 @@ on:
     paths:
       - 'backend/**'
       - '.github/workflows/**'
+      - 'docker/docker-compose-server.yaml'
   pull_request:
     branches:
       - main
@@ -16,22 +17,7 @@ on:
       - '.github/workflows/**'
 
 jobs:
-  test:
-    uses: ./.github/workflows/test.yml
+  deploy-prod:
+    uses: ./.github/workflows/deploy.yml
     with:
-      java_version: '17'
-      java_distribution: 'corretto'
-      cache_build_tool: 'maven'
-      cache_path: 'backend/pom.xml'
-      test_report_path: '**/target/surefire-reports/TEST-*.xml'
-
-  build:
-    if: github.ref == 'refs/heads/main'
-    needs: test
-    uses: ./.github/workflows/build.yml
-    with:
-      docker_image: 'ryzendee/caselab-edm'
-      image_tag: 'latest'
-    secrets:
-      docker_username: ${{ secrets.DOCKER_USERNAME }}
-      docker_password: ${{ secrets.DOCKER_TOKEN }}
+      environment: prod
