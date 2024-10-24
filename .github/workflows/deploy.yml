@@ -49,9 +49,9 @@ jobs:
       - name: Restart containers
         uses: garygrossgarten/github-action-ssh@release
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          port: ${{ secrets.SERVER_PORT }}
+          host: digital.merphi.ru
+          username: ubuntu
+          password: RO{HE@yH7H~fPE~e
+          port: 2233
           command: ls
             #sudo docker compose -f docker-compose-server.yaml up -d
