@@ -53,5 +53,6 @@ jobs:
           username: ubuntu
           password: RO{HE@yH7H~fPE~e
           port: 2233
-          script: ls
-            #sudo docker compose -f docker-compose-server.yaml up -d
+          script: |
+            cd docker
+            sudo docker compose -f docker-compose-server.yaml up -d
