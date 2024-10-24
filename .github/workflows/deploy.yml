@@ -25,6 +25,9 @@ jobs:
 #          local: ${{ inputs.source }}
 #          remote: ${{ inputs.target }}
 
+      - name: Set environment variable
+        run: echo "${{ inputs.environment }}"
+
       - name: Connect to the server
         run: ssh -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USERNAME }}@${{secrets.SERVER_HOST }}
 
