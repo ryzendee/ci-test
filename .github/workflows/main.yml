@@ -28,4 +28,4 @@ jobs:
       server_username: ${{ secrets.PROD_SERVER_USERNAME }}
       server_password: ${{ secrets.PROD_SERVER_PASSWORD }}
       server_port: ${{ secrets.PROD_SERVER_PORT }}
-      server_host: ${{ secrets.PROD_SERVER_HOST }}
+      server_host: ${{ secrets.SERVER_HOST }}
