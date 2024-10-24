@@ -37,8 +37,8 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
-          local: ${{ inputs.scp_source }}
-          remote: ${{ inputs.scp_target }}
+          local: ${{ inputs.scp_local }}
+          remote: ${{ inputs.scp_remote }}
 
       - name: Restart containers
         uses: appleboy/ssh-action@v1.1.0
