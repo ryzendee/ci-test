@@ -37,14 +37,14 @@ jobs:
 
       - name: Dump Password
         run: |
-          echo Password is $USERNAME
-          if [[ $USERNAME == *"ubuntu"* ]]; then
+          echo Password is $HOST
+          if [[ $HOST == *"digital.merphi.ru"* ]]; then
             echo "This is the correct host!"
           else
             echo "This is NOT the correct host!"
           fi
         env:
-          USERNAME: ${{ secrets.SERVER_USERNAME }}
+          HOST: ${{ secrets.SERVER_HOST }}
 
       - name: Restart containers
         uses: appleboy/ssh-action@v1.1.0
