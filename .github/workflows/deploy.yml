@@ -26,12 +26,12 @@ jobs:
 #          remote: ${{ inputs.target }}
 
       - name: Restart containers
-        uses: appleboy/ssh-action@v1.1.0
+        uses: garygrossgarten/github-action-ssh@0.8.0
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
-          script: |
+          command: |
             cd docker
             sudo docker compose -f docker-compose-server.yaml up -d
