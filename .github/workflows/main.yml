@@ -17,10 +17,9 @@ on:
       - '.github/workflows/**'
 
 jobs:
-  deploy-prod:
-    uses: ./.github/workflows/deploy.yml
+  build:
+    uses: ./github/workflows/build.yml
     with:
-      environment: prod
-      scp_local: 'docker/docker-compose-server.yaml'
-      scp_remote: '/home/ubuntu/docker-compose-server.yaml'
-    secrets: inherit
+      image_tag: latest
+
+
