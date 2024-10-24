@@ -5,7 +5,7 @@ on:
     inputs:
       environment:
         type: string
-        required: true
+        required: false
     secrets:
       SERVER_HOST:
         required: true
@@ -18,7 +18,7 @@ on:
 
 jobs:
   copy_compose:
-    environment: ${{ inputs.environment }}
+  #  environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
