@@ -5,7 +5,13 @@ on:
     inputs:
       environment:
         type: string
-        required: false
+        required: true
+      scp_local:
+        type: string
+        required: true
+      scp_remote:
+        type: string
+        required: true
     secrets:
       SERVER_HOST:
         required: true
@@ -24,27 +30,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-#      - name: Copy file
-#        uses: garygrossgarten/github-action-scp@release
-#        with:
-#          host: ${{ secrets.server_host }}
-#          username: ${{ secrets.server_username }}
-#          password: ${{ secrets.server_password }}
-#          port: ${{ secrets.server_port }}
-#          local: ${{ inputs.source }}
-#          remote: ${{ inputs.target }}
-
-
-      - name: Dump Host
-        run: |
-          echo Password is $HOST
-          if [[ $HOST = *"digital.merphi.ru"* ]]; then
-            echo "This is the correct host!"
-          else
-            echo "This is NOT the correct host!"
-          fi
-        env:
-          HOST: ${{ secrets.SERVER_HOST }}
+      - name: Copy file
+        uses: garygrossgarten/github-action-scp@0.9.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: ${{ secrets.SERVER_PORT }}
+          local: ${{ inputs.scp_source }}
+          remote: ${{ inputs.scp_target }}
 
       - name: Restart containers
         uses: appleboy/ssh-action@v1.1.0
