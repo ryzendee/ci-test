@@ -21,3 +21,8 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       environment: prod
+    secrets:
+      server_port: ${{ secrets.SERVER_PORT }}
+      server_host: ${{ secrets.SERVER_HOST }}
+      server_username: ${{ secrets.SERVER_USERNAME }}
+      server_password: ${{ secrets.SERVER_PASSWORD }}
