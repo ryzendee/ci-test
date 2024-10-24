@@ -47,11 +47,11 @@ jobs:
           HOST: ${{ secrets.SERVER_HOST }}
 
       - name: Restart containers
-        uses: garygrossgarten/github-action-ssh@release
+        uses: appleboy/ssh-action@v1.1.0
         with:
           host: digital.merphi.ru
           username: ubuntu
           password: RO{HE@yH7H~fPE~e
           port: 2233
-          command: ls
+          script: ls
             #sudo docker compose -f docker-compose-server.yaml up -d
