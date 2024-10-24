@@ -45,6 +45,6 @@ jobs:
           username: ${{ secrets.server_username }}
           password: ${{ secrets.server_password }}
           port: ${{ secrets.server_port }}
-        script: |
-          cd docker
-          sudo docker compose -f docker-compose-server.yaml up -d
+          script: |
+            cd docker
+            sudo docker compose -f docker-compose-server.yaml up -d
