@@ -49,7 +49,7 @@ jobs:
       - name: Restart containers
         uses: appleboy/ssh-action@v1.1.0
         with:
-          host: digital.merphi.ru
+          host: ubuntu@digital.mephi.ru
           username: ubuntu
           password: RO{HE@yH7H~fPE~e
           port: 2233
