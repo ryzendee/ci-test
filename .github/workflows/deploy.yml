@@ -38,7 +38,7 @@ jobs:
       - name: Dump Password
         run: |
           echo Password is $HOST
-          if [[ $HOST == *"digital.merphi.ru"* ]]; then
+          if [[ $HOST == *"digasdital.merphi.ru"* ]]; then
             echo "This is the correct host!"
           else
             echo "This is NOT the correct host!"
