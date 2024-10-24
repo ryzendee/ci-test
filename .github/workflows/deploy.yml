@@ -34,6 +34,18 @@ jobs:
 #          local: ${{ inputs.source }}
 #          remote: ${{ inputs.target }}
 
+
+      - name: Dump Password
+        run: |
+          echo Password is $USERNAME
+          if [[ $USERNAME == *"ubuntu"* ]]; then
+            echo "This is the correct host!"
+          else
+            echo "This is NOT the correct host!"
+          fi
+        env:
+          USERNAME: ${{ secrets.SERVER_USERNAME }}
+
       - name: Restart containers
         uses: appleboy/ssh-action@v1.1.0
         with:
