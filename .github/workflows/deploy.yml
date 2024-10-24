@@ -26,7 +26,7 @@ jobs:
 #          remote: ${{ inputs.target }}
 
       - name: Connect to the server
-        run: ssh -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USERNAME }}@${secrets.SERVER_HOST }}
+        run: ssh -p ${{ secrets.SERVER_PORT }} ${{ secrets.SERVER_USERNAME }}@${{secrets.SERVER_HOST }}
 
       - name: Enter password
         run: ${{ secrets.SERVER_PASSWORD }}
