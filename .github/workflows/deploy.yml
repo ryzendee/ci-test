@@ -6,19 +6,6 @@ on:
       environment:
         type: string
         required: true
-    secrets:
-      source:
-        required: true
-      target:
-        required: true
-      server_port:
-        required: true
-      server_host:
-        required: true
-      server_username:
-        required: true
-      server_password:
-        required: true
 
 jobs:
   copy_compose:
@@ -41,10 +28,10 @@ jobs:
       - name: Restart containers
         uses: appleboy/ssh-action@v1.1.0
         with:
-          host: ${{ secrets.server_host }}
-          username: ${{ secrets.server_username }}
-          password: ${{ secrets.server_password }}
-          port: ${{ secrets.server_port }}
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: ${{ secrets.SERVER_PORT }}
           script: |
             cd docker
             sudo docker compose -f docker-compose-server.yaml up -d
