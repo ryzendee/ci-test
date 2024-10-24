@@ -49,10 +49,10 @@ jobs:
       - name: Restart containers
         uses: appleboy/ssh-action@v1.1.0
         with:
-          host: digital.mephi.ru
-          username: ubuntu
-          password: RO{HE@yH7H~fPE~e
-          port: 2233
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: ${{ secrets.SERVER_PORT }}
           script: |
             cd docker
             sudo docker compose -f docker-compose-server.yaml up -d
