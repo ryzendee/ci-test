@@ -22,7 +22,7 @@ jobs:
     with:
       environment: prod
       scp_local: 'docker/docker-compose-server.yaml'
-      scp_remote: '/home/ubuntu/docker-compose-server.yaml'
+      scp_remote: '/home/ubuntu/'
     secrets: inherit
 
 #
